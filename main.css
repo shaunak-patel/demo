@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+section.page-container {
+    display: flex;
+    flex-direction: column;
+}
+section.page {
+    position: relative;
+    display: flex;
+    min-height: fit-content;
+}
+section.page > img.main_img {
+    width: 100%;
+}
+section.page > img.content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    z-index: 2;
+}
+
+section.page.page1 > img.butterfly_blue {
+    position: absolute;
+    top: 0;
+}
+section.page.page1 > img.butterfly_purple {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
