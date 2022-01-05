@@ -6,27 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DP</title>
     <link rel="stylesheet" href="./main.css">
+    <script src="https://use.fontawesome.com/a16b2fd3af.js"></script>
 </head>
-<body>
+<body onLoad="wait();">
+    <div id="loader">
+        <img src="./images/butterfly-purple.gif" alt="">
+    </div>
+    <button id="audio_btn" onclick="toggleAudio();">
+        <i class="fa fa-volume-up up" aria-hidden="true" style="display: none;"></i>
+        <i class="fa fa-volume-off off" aria-hidden="true"></i>
+    </button>
+    <audio autoplay loop hidden>
+        <source src="music.mpeg" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
     <section class="page-container">
         <section class="page page1">
             <img class="main_img" src="./images/page-1-bg.gif" alt="">
-            <img class="content" src="./images/page-1-content.png" alt="">
+            <img class="content" src="./images/page-1-content.svg" alt="">
             <!-- <img class="butterfly_blue" src="./images/butterfly-blue.gif" alt=""> -->
             <!-- <img class="butterfly_purple" src="./images/butterfly-purple.gif" alt=""> -->
         </section>
         <section class="page page2">
             <img class="main_img" src="./images/page-2-bg.gif" alt="">
-            <img class="content" src="./images/page-2-content.png" alt="">
+            <img class="content" src="./images/page-2-content.svg" alt="">
         </section>
         <section class="page page3">
             <img class="main_img" src="./images/page-3-bg.gif" alt="">
-            <img class="content" src="./images/page-3-content.png" alt="">
+            <img class="content" src="./images/page-3-content.svg" alt="">
         </section>
         <section class="page page4">
             <img class="main_img" src="./images/page-4-bg.gif" alt="">
-            <img class="content" src="./images/page-4-content.png" alt="">
+            <img class="content" src="./images/page-4-content.svg" alt="">
+        </section>
+        <section class="page page5">
+            <img class="main_img" src="./images/page-5-bg.gif" alt="">
+            <img class="content" src="./images/page-5-content.svg" alt="">
+        </section>
+        <section class="page page6">
+            <img class="main_img" src="./images/page-6-bg.gif" alt="">
+            <img class="content" src="./images/page-6-content.svg" alt="">
         </section>
     </section>
+
+    <script type="text/javascript">
+        const audio = document.querySelector("audio");
+        const playBTN = document.querySelector("#audio_btn .up");
+        const pauseBTN = document.querySelector("#audio_btn .off");
+        let audioFlag = true;
+        function toggleAudio() {
+            if(audio.paused){
+                audio.play();
+                pauseBTN.style.display = "none";
+                playBTN.style.display = "block";
+            }else{
+                audio.pause();
+                playBTN.style.display = "none";
+                pauseBTN.style.display = "block";
+            }
+        }
+        function playAudio() {
+            document.addEventListener('click', event => {
+                if(audioFlag){
+                    toggleAudio();
+                    audioFlag = false;
+                }
+            });
+        }
+        function wait() { 
+            if (document.getElementById) {
+                playAudio();
+                document.getElementById("loader").style.display = "none";
+            } else {
+                if (document.layers) {
+                    document.getElementById("loader").style.display = "none";
+                } else {
+                    document.getElementById("loader").style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
